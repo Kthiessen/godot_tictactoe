@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Square.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Board.cs" type="Script" id=2]
+
+[node name="Board" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TL" parent="." instance=ExtResource( 1 )]
+position = Vector2( 432, 216 )
+
+[node name="TM" parent="." instance=ExtResource( 1 )]
+position = Vector2( 536, 216 )
+
+[node name="TR" parent="." instance=ExtResource( 1 )]
+position = Vector2( 640, 216 )
+
+[node name="ML" parent="." instance=ExtResource( 1 )]
+position = Vector2( 432, 320 )
+
+[node name="MM" parent="." instance=ExtResource( 1 )]
+position = Vector2( 536, 320 )
+
+[node name="MR" parent="." instance=ExtResource( 1 )]
+position = Vector2( 640, 320 )
+
+[node name="BL" parent="." instance=ExtResource( 1 )]
+position = Vector2( 432, 424 )
+
+[node name="BM" parent="." instance=ExtResource( 1 )]
+position = Vector2( 536, 424 )
+
+[node name="BR" parent="." instance=ExtResource( 1 )]
+position = Vector2( 640, 424 )

@@ -1,0 +1,6 @@
+.vscode/
+.mono/
+.import/
+export.cfg
+export_presets.cfg
+data_*/

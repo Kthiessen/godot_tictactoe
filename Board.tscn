@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Square.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Board.cs" type="Script" id=2]
+[ext_resource path="res://assets/Board.png" type="Texture" id=3]
 
 [node name="Board" type="Node2D"]
 script = ExtResource( 2 )
@@ -32,3 +33,8 @@ position = Vector2( 536, 424 )
 
 [node name="BR" parent="." instance=ExtResource( 1 )]
 position = Vector2( 640, 424 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 536, 320 )
+scale = Vector2( 0.533333, 0.533333 )
+texture = ExtResource( 3 )

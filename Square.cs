@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Square : Godot.Node2D
+public class Square : Sprite
 {
     private Rect2 boundingBox;
 
@@ -27,12 +27,11 @@ public class Square : Godot.Node2D
 
     private void GetBoundingBox()
     {
-        boundingBox = new Rect2(ToGlobal(new Vector2(-50, -50)), new Vector2(100, 100));
+        boundingBox = new Rect2(new Vector2(-50, -50), new Vector2(100, 100));
     }
     public override void _Input(InputEvent inputEvent)
     {
         base._Input(inputEvent);
-
         if (inputEvent.IsActionPressed("click"))
         {
             if (selectedByPlayer >= 0)
@@ -40,7 +39,7 @@ public class Square : Godot.Node2D
                 return;
             }
 
-            Vector2 mousePos = ((InputEventMouse)inputEvent).Position;
+            Vector2 mousePos = ToLocal(((InputEventMouse)inputEvent).Position);
 
             if (boundingBox.HasPoint(mousePos))
             {
@@ -53,7 +52,7 @@ public class Square : Godot.Node2D
     {
         if (selectedByPlayer < 0)
         {
-            GetNode<Sprite>("Sprite").Texture = playerTextures[playerTurn];
+            Texture = playerTextures[playerTurn];
             selectedByPlayer = playerTurn;
         }
     }

@@ -1,40 +1,45 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Square.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Square.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Board.cs" type="Script" id=2]
 [ext_resource path="res://assets/Board.png" type="Texture" id=3]
 
-[node name="Board" type="Node2D"]
+[node name="Board" type="Sprite"]
+scale = Vector2( 0.613333, 0.613333 )
+texture = ExtResource( 3 )
 script = ExtResource( 2 )
 
 [node name="TL" parent="." instance=ExtResource( 1 )]
-position = Vector2( 432, 216 )
+position = Vector2( -192, -192 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="TM" parent="." instance=ExtResource( 1 )]
-position = Vector2( 536, 216 )
+position = Vector2( 0, -192 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="TR" parent="." instance=ExtResource( 1 )]
-position = Vector2( 640, 216 )
+position = Vector2( 192, -192 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="ML" parent="." instance=ExtResource( 1 )]
-position = Vector2( 432, 320 )
+position = Vector2( -192, 0 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="MM" parent="." instance=ExtResource( 1 )]
-position = Vector2( 536, 320 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="MR" parent="." instance=ExtResource( 1 )]
-position = Vector2( 640, 320 )
+position = Vector2( 192, 0 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="BL" parent="." instance=ExtResource( 1 )]
-position = Vector2( 432, 424 )
+position = Vector2( -192, 192 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="BM" parent="." instance=ExtResource( 1 )]
-position = Vector2( 536, 424 )
+position = Vector2( 0, 192 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="BR" parent="." instance=ExtResource( 1 )]
-position = Vector2( 640, 424 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 536, 320 )
-scale = Vector2( 0.533333, 0.533333 )
-texture = ExtResource( 3 )
+position = Vector2( 192, 192 )
+scale = Vector2( 1.5, 1.5 )

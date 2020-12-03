@@ -2,11 +2,18 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Board : Node2D
+public class Board : Sprite
 {
     private int playerTurn = 0;
+    private int winner = -1;
 
     private List<Square> board;
+
+    [Signal]
+    public delegate void Victory(int winner);
+
+    [Signal]
+    public delegate void GameOver();
 
     public override void _Ready()
     {
@@ -24,11 +31,20 @@ public class Board : Node2D
 
     public void OnSquareClicked(Square target)
     {
+        if (winner >= 0)
+        {
+            return;
+        }
         target.SetPlayer(playerTurn);
 
         if (CheckForWinner())
         {
-            GD.Print((playerTurn == 0 ? "First" : "Second") + " Player Won!");
+            winner = playerTurn;
+            EmitSignal(nameof(Victory), playerTurn);
+        }
+        else if (CheckForGameOver())
+        {
+            EmitSignal(nameof(GameOver));
         }
 
         playerTurn = ++playerTurn % 2;
@@ -109,5 +125,19 @@ public class Board : Node2D
         }
 
         return false;
+    }
+
+    private bool CheckForGameOver()
+    {
+        bool gameOver = true;
+        for (int i = 0; i < 9; i++)
+        {
+            if (board[i].selectedByPlayer == -1)
+            {
+                gameOver = false;
+                break;
+            }
+        }
+        return gameOver;
     }
 }

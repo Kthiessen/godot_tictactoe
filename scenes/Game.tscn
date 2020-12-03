@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/Board.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game.cs" type="Script" id=2]
+[ext_resource path="res://assets/fonts/Roboto.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/fonts/MenuItem.tres" type="DynamicFont" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 3 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="EndGameText" type="Label" parent="."]
+visible = false
+margin_right = 1024.0
+margin_bottom = 112.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Board" parent="." instance=ExtResource( 1 )]
+position = Vector2( 512, 300 )
+
+[node name="MainMenu" type="Button" parent="."]
+visible = false
+margin_left = 544.0
+margin_top = 488.0
+margin_right = 805.0
+margin_bottom = 554.0
+custom_fonts/font = ExtResource( 4 )
+text = "Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="Button" parent="."]
+visible = false
+margin_left = 216.0
+margin_top = 488.0
+margin_right = 477.0
+margin_bottom = 554.0
+custom_fonts/font = ExtResource( 4 )
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
